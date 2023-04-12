@@ -1,12 +1,14 @@
 package com.trasulov.currency.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class StatisticDto {
-    private double minRate;
+    private Double minRate;
 
-    private double maxRate;
+    private Double maxRate;
 
-    private double avgRate;
+    private Double avgRate;
 }

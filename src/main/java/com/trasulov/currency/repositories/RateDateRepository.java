@@ -13,8 +13,7 @@ import java.util.Optional;
 public interface RateDateRepository extends JpaRepository<RateDateDao, Long> {
     Optional<RateDateDao> findByDate(LocalDate date);
 
-    @Query(value = "SELECT id FROM rate_date WHERE date >= :min_date AND date <= :max_date", nativeQuery = true)
-    List<Integer> findAllIdByDateMaxAndDateMin(@Param("min_date") Instant minDate, @Param("max_date") Instant maxDate);
-
+    @Query(value = "SELECT * FROM rate_date WHERE date >= :from AND date <= :to", nativeQuery = true)
+    List<RateDateDao> findAllByDatePeriod(@Param("from") Instant from, @Param("to") Instant to);
 
 }
